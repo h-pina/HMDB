@@ -1,0 +1,36 @@
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: top;
+}
+
+.info {
+  width: 30vw;
+  height: 60vh;
+  margin-left: 5vw;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+p {
+  text-align: justify;
+  margin-top: 0;
+  margin-bottom: 1.5vh;
+}
+
+.sinopse {
+  overflow-y: scroll;
+  height: 15vh;
+}
+
+.rate {
+  margin-top: 10vh;
+}
+
+iframe {
+  border: 0;
+  height: 60vh;
+  width: 45vw;
+}

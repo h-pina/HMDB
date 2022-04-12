@@ -1,0 +1,17 @@
+header {
+  height: 15vh;
+  background-color: #303f9f;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+input {
+  height: 5vh;
+  width: 15vw;
+}
+
+img {
+  border-radius: 50%;
+  height: 10vh;
+}

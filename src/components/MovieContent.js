@@ -1,11 +1,11 @@
 import "../styles/movieContent.css";
 
-const movieContent = () => {
+const movieContent = (props) => {
   return (
     <div className="content">
-      <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY"></iframe>
+      <iframe src="https://www.youtube.com/embed/q5l-2R7E_48"></iframe>
       <div className="info">
-        <h2>Nome do Filme</h2>
+        <h2>{props.movieTitle}</h2>
         <p className="sinopse">
           <b>Sinopse:</b> Lorem ipsum dolor sit amet, consectetur adipiscing
           elit. Nullam est nulla, vulputate ac mollis in, semper eu massa. Ut ut

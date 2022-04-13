@@ -5,8 +5,8 @@ function header() {
   return (
     <header>
       <img src={logo} />
-      <button />
-      <button />
+      <button> Lançamentos </button>
+      <button> Destaques </button>
       <input />
     </header>
   );

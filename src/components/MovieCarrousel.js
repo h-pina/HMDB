@@ -1,36 +1,34 @@
+import { useState, useRef, useEffect } from "react";
 import "../styles/movieCarrousel.css";
 import MovieContent from "./MovieContent.js";
 
 function MovieCarrousel() {
-  let actualPanel = 0;
+  const [actualPanel, setActualPanel] = useState(0);
+
+  const panel1 = useRef(null);
+  const panel2 = useRef(null);
+  const panel3 = useRef(null);
 
   let handleRightClick = () => {
-    let positions = ["0vw", "-90vw", "-180vw"];
-    let panels = document.getElementsByClassName("panel");
-    for (let i = 0; i < panels.length; i++) {
-      if (actualPanel < 2) {
-        panels.item(i).style.transform = `translateX(${
-          positions[actualPanel + 1]
-        })`;
-      }
+    console.log(actualPanel);
+    if (actualPanel > -180) {
+      setActualPanel(actualPanel - 90);
     }
-    console.log("Direita");
-    actualPanel++;
   };
 
   let handleLeftClick = () => {
-    let positions = ["0vw", "-90vw", "-180vw"];
-    let panels = document.getElementsByClassName("panel");
-    for (let i = 0; i < panels.length; i++) {
-      if (actualPanel > 0) {
-        panels.item(i).style.transform = `translateX(${
-          positions[actualPanel - 1]
-        })`;
-      }
+    console.log(actualPanel);
+    if (actualPanel < 0) {
+      setActualPanel(actualPanel + 90);
     }
-    console.log("esquerda");
-    actualPanel--;
   };
+
+  useEffect(() => {
+    console.log("a");
+    panel1.current.style.transform = `translateX(${actualPanel}vw)`;
+    panel2.current.style.transform = `translateX(${actualPanel}vw)`;
+    panel3.current.style.transform = `translateX(${actualPanel}vw)`;
+  }, [actualPanel]);
 
   return (
     <>
@@ -38,13 +36,13 @@ function MovieCarrousel() {
       <div className="container">
         <button className="arrow aleft" onClick={handleLeftClick} />
         <div className="carroussel">
-          <div className="panel">
+          <div ref={panel1} className="panel">
             <MovieContent movieTitle="The Boys" />
           </div>
-          <div className="panel">
+          <div ref={panel2} className="panel">
             <MovieContent movieTitle="The Girls" />
           </div>
-          <div className="panel">
+          <div ref={panel3} className="panel">
             <MovieContent movieTitle="The Kids" />
           </div>
         </div>

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import "../styles/movieCarrousel.css";
-import MovieContent from "./MovieContent.js";
+import "./styles.css";
+import MovieContent from "./MovieContent.jsx";
 
 function MovieCarrousel() {
   const [actualPanel, setActualPanel] = useState(0);

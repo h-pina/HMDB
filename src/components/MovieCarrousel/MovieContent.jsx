@@ -1,4 +1,4 @@
-import "../styles/movieContent.css";
+import "./movieContent.css";
 
 const movieContent = (props) => {
   return (

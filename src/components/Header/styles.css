@@ -6,17 +6,12 @@ header {
   align-items: center;
 }
 
-input {
+header input {
   height: 5vh;
   width: 15vw;
 }
 
-img {
-  border-radius: 50%;
-  height: 10vh;
-}
-
-button {
+header button {
   background: none;
   padding: none;
   border: none;

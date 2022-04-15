@@ -1,4 +1,30 @@
-.highlights {
-  height: 85vh;
-  background-color: #303f9f;
+.hl-header {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.hl-header h1 {
+  margin: 0%;
+  padding: 0;
+  margin-right: 26vw;
+}
+
+.hl-header input {
+  margin: 0%;
+  margin-right: 3vw;
+}
+
+.hl-button {
+  margin-top: 7vh;
+  width: 10vw;
+  height: 8vh;
+  margin-left: 45vw;
+  border: none;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 1em;
+  cursor: pointer;
 }

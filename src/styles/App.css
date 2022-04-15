@@ -2,3 +2,8 @@ main {
   height: 85vh;
   background-color: #d3d3d3;
 }
+
+.highlight-container {
+  height: 100vh;
+  background-color: #303f9f;
+}

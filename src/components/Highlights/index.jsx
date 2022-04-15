@@ -1,12 +1,20 @@
 import "./style.css";
 
-function highlights() {
+import HighlightRow from "./HighlightRow.jsx";
+//TODO: Create Drop Down Menu
+//TODO: Expansion Poster Mechanic
+
+function Highlights() {
   return (
-    <div className="highlights">
-      <h1>Destaques</h1>
-      <div></div>
-    </div>
+    <>
+      <header className="hl-header">
+        <h1>Destaques</h1>
+        <input></input>
+      </header>
+      <HighlightRow />
+      <button className="hl-button">Carregar Mais </button>
+    </>
   );
 }
 
-export default highlights;
+export default Highlights;

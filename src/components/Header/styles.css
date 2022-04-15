@@ -9,6 +9,8 @@ header {
 header input {
   height: 5vh;
   width: 15vw;
+  border-radius: 10px;
+  border: none;
 }
 
 header button {

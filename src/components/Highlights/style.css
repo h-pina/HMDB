@@ -1,9 +1,15 @@
+.highlight {
+  height: 100vh;
+  background-color: #303f9f;
+}
+
 .hl-header {
   margin: 0;
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  color: white;
 }
 
 .hl-header h1 {
@@ -12,9 +18,16 @@
   margin-right: 26vw;
 }
 
-.hl-header input {
+.hl-header select {
+  height: 5vh;
+  width: 15vw;
   margin: 0%;
   margin-right: 3vw;
+  text-align: center;
+  font-size: medium;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
 }
 
 .hl-button {

@@ -1,36 +1,17 @@
-import "./styles/App.css";
+import Homepage from "./pages/homepage";
+import Movie from "./pages/movie";
 
-import Header from "./components/Header";
-import MovieCarrousel from "./components/MovieCarrousel";
-import Highlights from "./components/Highlights";
-import Footer from "./components/Footer";
-import { useRef } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
-  const movieCarrousselView = useRef(null);
-  const highlightView = useRef(null);
-
-  const onReleasesClick = () => {
-    movieCarrousselView.current.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const onHighlightsClick = () => {
-    highlightView.current.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <>
-      <Header
-        onReleasesClick={onReleasesClick}
-        onHighlightsClick={onHighlightsClick}
-      />
-      <main ref={movieCarrousselView}>
-        <MovieCarrousel />
-      </main>
-      <div ref={highlightView} className="highlight-container">
-        <Highlights />
-      </div>
-      <Footer />
+      <Router>
+        <Routes>
+          <Route path="/" exact element={<Homepage />} />
+          <Route path="/movie" exact element={<Movie />} />
+        </Routes>
+      </Router>
     </>
   );
 }

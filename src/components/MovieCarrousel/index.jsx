@@ -10,21 +10,18 @@ function MovieCarrousel() {
   const panel3 = useRef(null);
 
   let handleRightClick = () => {
-    console.log(actualPanel);
     if (actualPanel > -180) {
       setActualPanel(actualPanel - 90);
     }
   };
 
   let handleLeftClick = () => {
-    console.log(actualPanel);
     if (actualPanel < 0) {
       setActualPanel(actualPanel + 90);
     }
   };
 
   useEffect(() => {
-    console.log("a");
     panel1.current.style.transform = `translateX(${actualPanel}vw)`;
     panel2.current.style.transform = `translateX(${actualPanel}vw)`;
     panel3.current.style.transform = `translateX(${actualPanel}vw)`;

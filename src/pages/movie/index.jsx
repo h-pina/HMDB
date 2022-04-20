@@ -4,7 +4,7 @@ import Header from "../../components/Header";
 import MovieContent from "../../components/MovieCarrousel/MovieContent.jsx";
 import Footer from "../../components/Footer";
 
-function Homepage() {
+function Movie() {
   return (
     <>
       <Header hideSections={true} />
@@ -16,4 +16,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default Movie;

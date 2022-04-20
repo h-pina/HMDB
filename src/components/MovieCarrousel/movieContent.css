@@ -21,8 +21,10 @@ p {
 }
 
 .sinopse {
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 15vh;
+  width: 28vw;
+  padding-right: 2vw;
 }
 
 .rate {
@@ -30,6 +32,15 @@ p {
 }
 
 iframe {
+  border: 0;
+  height: 60vh;
+  width: 45vw;
+}
+
+.substitute-poster {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 0;
   height: 60vh;
   width: 45vw;

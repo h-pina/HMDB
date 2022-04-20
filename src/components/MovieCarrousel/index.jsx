@@ -4,6 +4,8 @@ import MovieContent from "./MovieContent.jsx";
 
 function MovieCarrousel() {
   const [actualPanel, setActualPanel] = useState(0);
+  const [movies, setMovies] = useState();
+  const [moviesDisplayed, setMoviesDisplayed] = useState([]);
 
   const panel1 = useRef(null);
   const panel2 = useRef(null);
@@ -22,6 +24,25 @@ function MovieCarrousel() {
   };
 
   useEffect(() => {
+    let moviesDispl = [
+      Math.floor(Math.random() * 20),
+      Math.floor(Math.random() * 20),
+      Math.floor(Math.random() * 20),
+    ];
+    setMoviesDisplayed(moviesDispl);
+
+    const fetchReleases = async () => {
+      let moviesRaw = await fetch(
+        "https://api.themoviedb.org/3/movie/upcoming?api_key=9ec145f1e4ffb5e1b2d2682e0f236af0&language=pt-BR&page=1"
+      );
+      let movies = await moviesRaw.json();
+      setMovies(movies);
+    };
+
+    fetchReleases();
+  }, []);
+
+  useEffect(() => {
     panel1.current.style.transform = `translateX(${actualPanel}vw)`;
     panel2.current.style.transform = `translateX(${actualPanel}vw)`;
     panel3.current.style.transform = `translateX(${actualPanel}vw)`;
@@ -34,13 +55,19 @@ function MovieCarrousel() {
         <button className="arrow aleft" onClick={handleLeftClick} />
         <div className="carroussel">
           <div ref={panel1} className="panel">
-            <MovieContent movieTitle="The Boys" />
+            {movies && (
+              <MovieContent movieId={movies.results[moviesDisplayed[0]].id} />
+            )}
           </div>
           <div ref={panel2} className="panel">
-            <MovieContent movieTitle="The Girls" />
+            {movies && (
+              <MovieContent movieId={movies.results[moviesDisplayed[1]].id} />
+            )}
           </div>
           <div ref={panel3} className="panel">
-            <MovieContent movieTitle="The Kids" />
+            {movies && (
+              <MovieContent movieId={movies.results[moviesDisplayed[2]].id} />
+            )}
           </div>
         </div>
         <button className="arrow aright" onClick={handleRightClick} />

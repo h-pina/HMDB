@@ -32,7 +32,7 @@ function Highlights() {
   useEffect(() => {
     async function fetchGenreMovieList() {
       let genreMovieListRaw = await fetch(
-        `https://api.themoviedb.org/3/discover/movie?api_key=9ec145f1e4ffb5e1b2d2682e0f236af0&language=en-US&with_genres=${genre}`
+        `https://api.themoviedb.org/3/discover/movie?api_key=9ec145f1e4ffb5e1b2d2682e0f236af0&language=pt-BR&with_genres=${genre}`
       );
       let genreMovieListJson = await genreMovieListRaw.json();
 

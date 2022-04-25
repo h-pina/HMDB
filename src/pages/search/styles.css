@@ -1,0 +1,9 @@
+.srch-results {
+  background-color: d3d3d3;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 5vh;
+}

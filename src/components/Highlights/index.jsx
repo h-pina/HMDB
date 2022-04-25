@@ -7,26 +7,28 @@ function Highlights() {
   const [categoryList, setCategoryList] = useState([]);
   const [movieList, setMovieList] = useState([]);
   const [rowNumber, setRowNumber] = useState(1);
-  const [genre, setGenre] = useState();
-  const selectionRef = useRef(null);
+  const [genre, setGenre] = useState(null);
   const containerRef = useRef(null);
 
   useEffect(() => {
     setRowNumber(1);
 
-    async function fetchCategoryList() {
+    async function fetchinitialData() {
       let list = [];
       const catListRaw = await fetch(
         "https://api.themoviedb.org/3/genre/movie/list?api_key=9ec145f1e4ffb5e1b2d2682e0f236af0&language=en-US"
       );
+
       const catList = await catListRaw.json();
+
       catList.genres.forEach((element) => {
         list.push(element);
       });
+
       setCategoryList(list);
     }
 
-    fetchCategoryList();
+    fetchinitialData();
   }, []);
 
   useEffect(() => {
@@ -34,11 +36,10 @@ function Highlights() {
       let genreMovieListRaw = await fetch(
         `https://api.themoviedb.org/3/discover/movie?api_key=9ec145f1e4ffb5e1b2d2682e0f236af0&language=pt-BR&with_genres=${genre}`
       );
-      let genreMovieListJson = await genreMovieListRaw.json();
 
+      let genreMovieListJson = await genreMovieListRaw.json();
       setMovieList(genreMovieListJson);
     }
-
     fetchGenreMovieList();
   }, [genre]);
 
@@ -56,9 +57,9 @@ function Highlights() {
     let genre = categoryList.find(
       (element) => element.name === event.target.value
     );
+
     setGenre(genre.id);
   };
-
   return (
     <div ref={containerRef} className="highlight">
       <header className="hl-header">
@@ -71,16 +72,20 @@ function Highlights() {
         </select>
       </header>
       {genre && (
-        <div className="highlights-container">
-          {movieList.results.slice(0, rowNumber * 4).map((movie) => (
-            <HighlightPanel imageLink={movie.poster_path} movieId={movie.id} />
-          ))}
-        </div>
+        <>
+          <div className="highlights-container">
+            {movieList.results.slice(0, rowNumber * 4).map((movie) => (
+              <HighlightPanel
+                imageLink={movie.poster_path}
+                movieId={movie.id}
+              />
+            ))}
+          </div>
+          <button className="hl-button" onClick={addRow}>
+            Carregar Mais
+          </button>
+        </>
       )}
-
-      <button className="hl-button" onClick={addRow}>
-        Carregar Mais
-      </button>
     </div>
   );
 }
